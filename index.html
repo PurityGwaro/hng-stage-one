@@ -17,12 +17,37 @@
         width="180px"
       />
 
-      <p data-testid="myTrack">Frontend | Backend</p>
-      <a href="/" data-testid="githubURL">link to the code</a>
-      <p>
-        <span data-testid="currentDayOfTheWeek">Thursday</span>
-      </p>
-      <p data-testid="currentUTCTime">UTC Time</p>
+      <p data-testid="myTrack">Frontend <span class="divider">|</span> Backend</p>
+      <a
+        href="https://github.com/PurityGwaro/hng-stage-one"
+        data-testid="githubURL"
+        target="_blank"
+        >link to the code</a
+      >
+      <div class="time">
+        <p data-testid="currentDayOfTheWeek"></p>
+        <p data-testid="currentUTCTime" class="utctime"></p>
+      </div>
     </main>
+    <script>
+      const date = new Date();
+      const daysArray = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const dayOfWeek = daysArray[date.getUTCDay()] + " :";
+      const utcTime =
+        date.getUTCHours() + " hrs" + " " + date.getUTCMinutes() + " min";
+      document.querySelector(
+        '[data-testid="currentDayOfTheWeek"]'
+      ).textContent = dayOfWeek;
+      document.querySelector('[data-testid="currentUTCTime"]').textContent =
+        utcTime;
+    </script>
   </body>
 </html>
